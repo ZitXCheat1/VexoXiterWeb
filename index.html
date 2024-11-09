@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vexo Dev Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- FontAwesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> <!-- Poppins font -->
+</head>
+<body>
+    <header>
+        <div class="nav-bar">
+            <h1 class="logo">VEXO DEV</h1>
+            <nav>
+                <a href="#hero">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#free-product">Free Product</a>
+                <a href="#buy">Buy</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <h2>Hello I'm Vexo</h2>
+        <p>Cheat Developer</p>
+        <a href="https://discord.gg/fVZWBgj5" target="_blank" class="hero-button">My Panels</a>
+        <div class="icons">
+            <a href="https://www.youtube.com/@VEXOXCHEAT" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+            <a href="https://discord.gg/fVZWBgj5" target="_blank"><i class="fab fa-discord fa-2x"></i></a>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <i class="fas fa-gamepad project-icon"></i>
+                <h3>My Projects</h3>
+                <p>My personal Projects you can see for free. Available on My Discord Server!</p>
+                <a href="" target="_blank" class="project-link">Visit</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="free-product" class="projects">
+        <h2>Free Product</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <i class="fas fa-gift project-icon"></i>
+                <h3>Free Panels</h3>
+                <p>Explore our free panels available for use. Join our community for more information.</p>
+                <a href="https://discord.gg/fVZWBgj5" target="_blank" class="project-link">Access Free Panels</a>
+            </div>
+            <div class="project-card">
+                <i class="fas fa-box-open project-icon"></i>
+                <h3>Free Stuff</h3>
+                <p>Get access to additional free resources and tools to enhance your experience.</p>
+                <a href="https://discord.gg/fVZWBgj5" target="_blank" class="project-link">Get Free Stuff</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="buy" class="projects">
+        <h2>Buy</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <i class="fas fa-credit-card project-icon"></i>
+                <h3>Buy Premium Access</h3>
+                <p>Choose a subscription plan for premium access.</p>
+                <button onclick="openBuyOptions()" class="project-link">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fab fa-discord contact-icon"></i>
+                <h3>Discord</h3>
+                <a href="https://discord.gg/fVZWBgj5" target="_blank" class="contact-button">Link to my server</a>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-envelope contact-icon"></i>
+                <h3>Email</h3>
+                <p>zitxiter@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+  <!-- Buy Modal -->
+<div id="buyModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeBuyModal()">&times;</span>
+        <h2>Select a Subscription Plan</h2>
+        <form>
+            <label for="plan-select" class="modal-label">Choose a plan:</label>
+            <select id="plan-select" name="plan-select" class="modal-input">
+                <option value="lifetime">Life Time - $30</option>
+                <option value="month">1 Month - $15</option>
+                <option value="week">1 Week - $5</option>
+            </select>
+            <button type="button" class="buy-submit-button" onclick="submitBuy()">Proceed</button>
+        </form>
+    </div>
+</div>
+
+<style>
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 100px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 40px;
+    border: 1px solid #ddd;
+    width: 60%;
+    max-width: 500px; /* Responsive width */
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h2 {
+    font-size: 28px;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.modal-label {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.modal-input:focus {
+    border-color: #1e90ff;
+    outline: none;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+}
+
+.buy-submit-button {
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.buy-submit-button:hover {
+    background-color: #0056b3;
+}
+</style>
+
+<script>
+    function openBuyOptions() {
+        document.getElementById('buyModal').style.display = 'block';
+    }
+
+    function closeBuyModal() {
+        document.getElementById('buyModal').style.display = 'none';
+    }
+
+    function submitBuy() {
+        const selectedPlan = document.getElementById('plan-select').value;
+        if (selectedPlan === 'week') {
+            window.open('https://buy.stripe.com/test_6oE4jN2kiggL4da4gg', '_blank');
+        } else {
+            alert(`Proceeding with the ${selectedPlan} plan.`);
+        }
+    }
+
+    // Close modal when clicking outside of the modal content
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('buyModal')) {
+            document.getElementById('buyModal').style.display = 'none';
+        }
+    }
+</script>
+
+
+    <script>
+        function openBuyOptions() {
+            document.getElementById('buyModal').style.display = 'block';
+        }
+
+        function closeBuyModal() {
+            document.getElementById('buyModal').style.display = 'none';
+        }
+
+        function submitBuy() {
+            const selectedPlan = document.getElementById('plan-select').value;
+            if (selectedPlan === 'week') {
+                window.open('https://buy.stripe.com/test_6oE4jN2kiggL4da4gg', '_blank');
+            } else {
+                alert(`Proceeding with the ${selectedPlan} plan.`);
+            }
+        }
+
+        // Close modal when clicking outside of the modal content
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('buyModal')) {
+                document.getElementById('buyModal').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
